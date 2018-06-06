@@ -13,6 +13,6 @@
 @property (assign, nonatomic) int rightCounter;
 @property (assign, nonatomic) int wrongCounter;
 
-- (NSString *)scoreResultRight:(int)right andWrong:(int)wrong;
+- (NSString *)scoreResult;
 
 @end
