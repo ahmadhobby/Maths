@@ -7,28 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     
-    NSLog(@"MATHS!!");
-    
-    
     BOOL gameOn = YES;
-    
+    NSLog(@"MATHS!!\n\n\n");
+
     ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
     scoreKeeper.rightCounter = 0;
     scoreKeeper.wrongCounter = 0;
+    InputHandler *inputHandler = [[InputHandler alloc] init];
+    QuestionManager *questionManager = [[QuestionManager alloc] init];
+    QuestionFactory *questionFactory = [[QuestionFactory alloc] init];
     
     while (gameOn) {
        
-        AdditionQuestion *additionQuestion = [[AdditionQuestion alloc] init];
+        Question *additionQuestion = [[Question alloc] init];
+        [questionManager.questions addObject:additionQuestion];
         NSString *question = additionQuestion.question;
         NSLog(@"%@", question);
         
-        InputHandler *inputHandler = [[InputHandler alloc] init];
         NSString *result = [inputHandler promptInput];
         
         if ([result isEqualToString:@"quit"]) {
@@ -36,12 +39,13 @@ int main(int argc, const char * argv[]) {
         } else if (result.integerValue != additionQuestion.answer) {
             NSLog(@"Wrong!");
             scoreKeeper.wrongCounter++;
-        } else if (result.integerValue == additionQuestion.answer) {
+        } else {
             NSLog(@"Right!");
             scoreKeeper.rightCounter++;
         }
         NSLog(@"%@", [scoreKeeper scoreResult]);
     }
+    NSLog(@"%@", [questionManager timeOutput]);
     return 0;
 }
 

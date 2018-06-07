@@ -1,5 +1,5 @@
 //
-//  AdditionQuestion.m
+//  DivisionQuestion.h
 //  Maths
 //
 //  Created by Ahmad Hobby on 2018-06-06.
@@ -8,6 +8,6 @@
 
 #import "AdditionQuestion.h"
 
-@implementation AdditionQuestion
+@interface DivisionQuestion : Question
 
 @end

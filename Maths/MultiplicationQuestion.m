@@ -1,13 +1,13 @@
 //
-//  AdditionQuestion.m
+//  MultiplicationQuestion.m
 //  Maths
 //
 //  Created by Ahmad Hobby on 2018-06-06.
 //  Copyright © 2018 Ahmad Hobby. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import "MultiplicationQuestion.h"
 
-@implementation AdditionQuestion
+@implementation MultiplicationQuestion
 
 @end
